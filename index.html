@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tatuagens Maori, Sombreado e Oriental - Arte que conta histórias ancestrais">
+    <title>Miguel Sant'anna - Tattoo</title>
+
+    <link rel="shortcut icon" href="/assets/images/Screenshot_114.png" type="image/x-icon">
+    
+    <!-- Fontes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&family=Creepster&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/styles/style.css">
+</head>
+<body>
+    <!-- Header com Logo e Navegação -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-text"><i class="fas fa-fire"></i>MIGUEL SANT'ANNA</span>
+                <span class="logo-subtitle">TATTOO STUDIO</span>
+            </div>
+            <nav class="nav">
+                <a href="#galeria" class="nav-link"><i class="fas fa-images"></i> GALERIA</a>
+                <a href="#estilos" class="nav-link"><i class="fas fa-palette"></i> ESTILOS</a>
+                <a href="#sobre" class="nav-link"><i class="fas fa-user-tie"></i> SOBRE</a>
+                <a href="#contato" class="nav-link"><i class="fas fa-calendar-check"></i> CONTATO</a>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">MARCAS QUE CONTAM<br>HISTÓRIAS ANCESTRAIS</h1>
+            <p class="hero-subtitle"><i class="fas fa-compass"></i> Arte Maori • <i class="fas fa-moon"></i> Sombreado • <i class="fas fa-dragon"></i> Oriental</p>
+            <a href="#contato" class="cta-button"><i class="fas fa-pen-nib"></i> AGENDE SUA ARTE</a>
+        </div>
+        <div class="hero-pattern"></div>
+    </section>
+
+    <!-- Galeria de Destaque -->
+    <section id="galeria" class="featured-gallery">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-star"></i> OBRAS EM DESTAQUE <i class="fas fa-star"></i></h2>
+            <div class="gallery-carousel">
+                <button class="carousel-btn prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-track">
+                    <!-- Maori -->
+                    <div class="carousel-slide active" data-style="maori">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Maori - Padrão Koru">
+                        <div class="slide-info">
+                            <h3>ARTE MAORI</h3>
+                            <p>Simbolismo e Tradição</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-style="maori">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Maori - Manaia">
+                        <div class="slide-info">
+                            <h3>ARTE MAORI</h3>
+                            <p>Proteção Espiritual</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-style="maori">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Maori - Matau">
+                        <div class="slide-info">
+                            <h3>ARTE MAORI</h3>
+                            <p>Força e Prosperidade</p>
+                        </div>
+                    </div>
+                    <!-- Sombreado -->
+                    <div class="carousel-slide" data-style="sombreado">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Sombreada - Realismo">
+                        <div class="slide-info">
+                            <h3>SOMBREADO</h3>
+                            <p>Realismo Impressionante</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-style="sombreado">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Sombreada - Retrato">
+                        <div class="slide-info">
+                            <h3>SOMBREADO</h3>
+                            <p>Profundidade e Emoção</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-style="sombreado">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Sombreada - Textura">
+                        <div class="slide-info">
+                            <h3>SOMBREADO</h3>
+                            <p>Texturas Complexas</p>
+                        </div>
+                    </div>
+                    <!-- Oriental -->
+                    <div class="carousel-slide" data-style="oriental">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Oriental - Dragão">
+                        <div class="slide-info">
+                            <h3>ARTE ORIENTAL</h3>
+                            <p>Dragão Dourado</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-style="oriental">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Oriental - Koi">
+                        <div class="slide-info">
+                            <h3>ARTE ORIENTAL</h3>
+                            <p>Carpas Sagradas</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" data-style="oriental">
+                        <img src="/assets/images/icon.png" alt="Tatuagem Oriental - Flor de Lótus">
+                        <div class="slide-info">
+                            <h3>ARTE ORIENTAL</h3>
+                            <p>Flor de Lótus</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-dots"></div>
+            <a href="/assets/pages/galeria.html" class="gallery-link"><i class="fas fa-th"></i> VER GALERIA COMPLETA</a>
+        </div>
+    </section>
+
+    <!-- Estilos Trabalhados -->
+    <section id="estilos" class="styles-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-brush"></i> ESTILOS TRABALHADOS</h2>
+            <div class="styles-grid">
+                <div class="style-card" data-aos="fade-up">
+                    <div class="style-image">
+                        <img src="/assets/images/icon.png" alt="Estilo Maori">
+                        <div class="style-overlay"></div>
+                    </div>
+                    <div class="style-content">
+                        <h3><i class="fas fa-compass"></i> MAORI</h3>
+                        <p>Simbolismo e tradição entrelaçados em cada traço. A arte Maori carrega a força dos ancestrais e a conexão com o divino.</p>
+                        <div class="style-patterns"></div>
+                    </div>
+                </div>
+                <div class="style-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="style-image">
+                        <img src="/assets/images/icon.png" alt="Estilo Sombreado">
+                        <div class="style-overlay"></div>
+                    </div>
+                    <div class="style-content">
+                        <h3><i class="fas fa-moon"></i> SOMBREADO</h3>
+                        <p>Sombras que falam por si. Técnicas avançadas de sombreamento criam profundidade e realismo impressionantes.</p>
+                        <div class="style-patterns"></div>
+                    </div>
+                </div>
+                <div class="style-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="style-image">
+                        <img src="/assets/images/icon.png" alt="Estilo Oriental">
+                        <div class="style-overlay"></div>
+                    </div>
+                    <div class="style-content">
+                        <h3><i class="fas fa-dragon"></i> ORIENTAL</h3>
+                        <p>Riqueza de detalhes e cultura milenar. Dragões, carpas e flores ganham vida com traços precisos e cores vibrantes.</p>
+                        <div class="style-patterns"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre o Artista -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title"><i class="fas fa-user-tie"></i> SOBRE O ARTISTA</h2>
+                    <p class="about-intro">Há mais de 15 anos transformando histórias em arte permanente.</p>
+                    <p>Cada tatuagem é uma jornada única, uma conexão profunda entre a alma do cliente e a expressão artística. Especializado em arte Maori, sombreado e oriental, busco sempre honrar as tradições ancestrais enquanto crio algo verdadeiramente único para cada pessoa.</p>
+                    <p>Minha missão é criar mais do que tatuagens - são marcas que contam histórias, símbolos de força, proteção e identidade que você carregará por toda a vida.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number"><i class="fas fa-paint-brush"></i> 2000+</span>
+                            <span class="stat-label">Artes Criadas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number"><i class="fas fa-award"></i> 15</span>
+                            <span class="stat-label">Anos de Experiência</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number"><i class="fas fa-heart"></i> 100%</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="/assets/images/icon.png" alt="Tatuador trabalhando">
+                    <div class="about-pattern"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed -->
+    <section class="instagram-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fab fa-instagram"></i> @Miguel Sant'anna - Tattoo</h2>
+            <div class="instagram-grid">
+                <div class="instagram-post">
+                    <img src="/assets/images/icon.png" alt="Instagram Post 1">
+                    <div class="instagram-overlay">
+                        <span class="likes"><i class="fas fa-heart"></i> 342</span>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="/assets/images/icon.png" alt="Instagram Post 2">
+                    <div class="instagram-overlay">
+                        <span class="likes"><i class="fas fa-heart"></i> 567</span>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="/assets/images/icon.png" alt="Instagram Post 3">
+                    <div class="instagram-overlay">
+                        <span class="likes"><i class="fas fa-heart"></i> 891</span>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="/assets/images/icon.png" alt="Instagram Post 4">
+                    <div class="instagram-overlay">
+                        <span class="likes"><i class="fas fa-heart"></i> 423</span>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="/assets/images/icon.png" alt="Instagram Post 5">
+                    <div class="instagram-overlay">
+                        <span class="likes"><i class="fas fa-heart"></i> 756</span>
+                    </div>
+                </div>
+                <div class="instagram-post">
+                    <img src="/assets/images/icon.png" alt="Instagram Post 6">
+                    <div class="instagram-overlay">
+                        <span class="likes"><i class="fas fa-heart"></i> 634</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendamento -->
+    <section id="contato" class="booking-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> AGENDE SUA ARTE</h2>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-group">
+                    <input type="text" id="nome" name="nome" placeholder="&#xf007; SEU NOME" required style="font-family: 'Font Awesome 6 Free', 'Open Sans', sans-serif;">
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="&#xf3cd; WHATSAPP (com DDD)" required style="font-family: 'Font Awesome 6 Free', 'Open Sans', sans-serif;">
+                </div>
+                <div class="form-group">
+                    <select id="estilo" name="estilo" required style="font-family: 'Font Awesome 6 Free', 'Open Sans', sans-serif;">
+                        <option value="">&#xf53f; ESCOLHA O ESTILO</option>
+                        <option value="Maori">MAORI</option>
+                        <option value="Sombreado">SOMBREADO</option>
+                        <option value="Oriental">ORIENTAL</option>
+                        <option value="Outro">OUTRO / COMBINAR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="mensagem" name="mensagem" placeholder="&#xf040; DESCREVA SUA IDEIA..." rows="4" required style="font-family: 'Font Awesome 6 Free', 'Open Sans', sans-serif;"></textarea>
+                </div>
+                <button type="submit" class="submit-button"><i class="fab fa-whatsapp"></i> ENVIAR PARA WHATSAPP</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Miguel Sant'anna - Tattoo</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua das Artes, 123 - Centro<br>
+                    <i class="fas fa-city"></i> Salvador - BA<br>
+                    <i class="fab fa-whatsapp"></i> WhatsApp: (71) 99999-9999</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Miguel Sant'anna | Tatuador - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/scripts/script.js"></script>
+</body>
+</html>

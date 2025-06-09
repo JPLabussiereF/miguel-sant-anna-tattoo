@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galeria de Tatuagens - Arte Maori, Sombreado e Oriental">
+    <title>Galeria - Miguel Sant'anna</title>
+
+    <link rel="shortcut icon" href="/assets/images/icon.png" type="image/x-icon">
+    
+    <!-- Fontes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS customizado para galeria -->
+    <style>
+        /* Reset e Variáveis */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --preto-profundo: #000000;
+            --cinza-carvao: #2B2B2B;
+            --branco-puro: #FFFFFF;
+            --terracota-maori: #8B4513;
+            --oceano-pacifico: #1E3A5F;
+            --dourado-ancestral: #B8860B;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--preto-profundo);
+            color: var(--branco-puro);
+            overflow-x: hidden;
+        }
+
+        /* Header Minimalista */
+        .gallery-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: var(--branco-puro);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--terracota-maori), var(--oceano-pacifico));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-button {
+            padding: 0.5rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--dourado-ancestral);
+            color: var(--dourado-ancestral);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 25px;
+        }
+
+        .back-button:hover {
+            background: var(--dourado-ancestral);
+            color: var(--preto-profundo);
+            transform: translateY(-2px);
+        }
+
+        /* Hero da Galeria */
+        .gallery-hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(30, 58, 95, 0.1));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><path d="M200 50 Q250 100 200 150 Q150 100 200 50" fill="none" stroke="%23B8860B" stroke-width="0.5" opacity="0.1"/><circle cx="200" cy="200" r="150" fill="none" stroke="%231E3A5F" stroke-width="0.5" opacity="0.1"/></svg>');
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gallery-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(184, 134, 11, 0.5); }
+            to { text-shadow: 0 0 30px rgba(184, 134, 11, 0.8), 0 0 40px rgba(139, 69, 19, 0.5); }
+        }
+
+        .gallery-subtitle {
+            font-size: 1.2rem;
+            color: var(--dourado-ancestral);
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Filtros Interativos */
+        .filter-container {
+            padding: 2rem;
+            background: var(--cinza-carvao);
+            position: sticky;
+            top: 80px;
+            z-index: 900;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 2px solid rgba(184, 134, 11, 0.5);
+            color: var(--branco-puro);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--dourado-ancestral);
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+            border-radius: 50%;
+        }
+
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            width: 200%;
+            height: 200%;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--preto-profundo);
+            border-color: var(--dourado-ancestral);
+            z-index: 1;
+        }
+
+        .filter-btn span {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Grid Masonry Criativo */
+        .gallery-grid {
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            column-count: 4;
+            column-gap: 1rem;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .gallery-item:nth-child(odd) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(even) { animation-delay: 0.2s; }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.3);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay com informações */
+        .item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        .item-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .item-style {
+            color: var(--dourado-ancestral);
+            font-size: 0.9rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.2s;
+        }
+
+        .gallery-item:hover .item-title,
+        .gallery-item:hover .item-style {
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 40px;
+            height: 40px;
+            background: var(--dourado-ancestral);
+            border: none;
+            border-radius: 50%;
+            color: var(--preto-profundo);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(184, 134, 11, 0.8);
+            border: none;
+            color: var(--preto-profundo);
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--dourado-ancestral);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-prev {
+            left: -60px;
+        }
+
+        .lightbox-next {
+            right: -60px;
+        }
+
+        /* Estatísticas */
+        .gallery-stats {
+            padding: 3rem 2rem;
+            background: var(--cinza-carvao);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(139, 69, 19, 0.2);
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            color: var(--dourado-ancestral);
+            font-weight: 900;
+        }
+
+        .stat-label {
+            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer {
+            background: var(--preto-profundo);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-info h3 {
+            font-family: var(--font-titulo);
+            color: var(--dourado-ancestral);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social a {
+            font-size: 2rem;
+            transition: var(--transition-smooth);
+            color: var(--branco-puro);
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(184, 134, 11, 0.2);
+            border: 2px solid transparent;
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-5px) scale(1.2);
+            background: var(--dourado-ancestral);
+            color: var(--preto-profundo);
+            border-color: var(--dourado-ancestral);
+            box-shadow: 0 5px 15px rgba(184, 134, 11, 0.5);
+        }
+
+        /* Cores específicas para cada rede social no hover */
+        .footer-social a:nth-child(1):hover { background: #E4405F; border-color: #E4405F; } /* Instagram */
+        .footer-social a:nth-child(2):hover { background: #25D366; border-color: #25D366; } /* WhatsApp */
+
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .gallery-grid { column-count: 3; }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid { column-count: 2; }
+            .gallery-title { font-size: 2.5rem; }
+            .lightbox-nav { display: none; }
+            .filter-btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
+            .footer-content { flex-direction: column; text-align: center; gap: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { column-count: 1; }
+            .gallery-hero { padding: 2rem 1rem; }
+            .lightbox-close { top: 10px; right: 10px; }
+        }
+
+        .footer-info i {
+            color: var(--dourado-ancestral);
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Animação de carregamento */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3000;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(184, 134, 11, 0.3);
+            border-top-color: var(--dourado-ancestral);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Estilos para ícones */
+        .logo-link i {
+            margin-right: 0.5rem;
+            color: var(--terracota-maori);
+        }
+
+        .back-button i {
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover i {
+            transform: translateX(-5px);
+        }
+
+        .gallery-title i {
+            color: var(--dourado-ancestral);
+            margin-right: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .filter-btn i {
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-btn:hover i {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        .lightbox-close i {
+            font-size: 1.5rem;
+        }
+
+        .lightbox-nav i {
+            font-size: 1.5rem;
+        }
+
+        .stat-number i {
+            color: var(--dourado-ancestral);
+            margin-right: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .stat-item:hover .stat-number i {
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="gallery-header">
+        <div class="header-content">
+            <a href="../../index.html" class="logo-link"><i class="fas fa-fire"></i>MIGUEL SANT'ANNA</a>
+            <a href="../../index.html" class="back-button"><i class="fas fa-arrow-left"></i> VOLTAR</a>
+        </div>
+    </header>
+
+    <!-- Hero da Galeria -->
+    <section class="gallery-hero">
+        <h1 class="gallery-title"><i class="fas fa-image"></i> GALERIA DE ARTES</h1>
+        <p class="gallery-subtitle">CADA MARCA CONTA UMA HISTÓRIA</p>
+    </section>
+
+    <!-- Filtros -->
+    <div class="filter-container">
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+                <span><i class="fas fa-th"></i> TODAS</span>
+            </button>
+            <button class="filter-btn" data-filter="maori">
+                <span><i class="fas fa-compass"></i> MAORI</span>
+            </button>
+            <button class="filter-btn" data-filter="sombreado">
+                <span><i class="fas fa-moon"></i> SOMBREADO</span>
+            </button>
+            <button class="filter-btn" data-filter="oriental">
+                <span><i class="fas fa-dragon"></i> ORIENTAL</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Grid de Imagens -->
+    <div class="gallery-grid" id="galleryGrid">
+        <!-- Maori -->
+        <div class="gallery-item" data-category="maori">
+            <img src="../images/icon.png" alt="Tatuagem Maori - Koru">
+            <div class="item-overlay">
+                <h3 class="item-title">Espiral Koru</h3>
+                <p class="item-style">Arte Maori</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="maori">
+            <img src="../images/icon.png" alt="Tatuagem Maori - Manaia">
+            <div class="item-overlay">
+                <h3 class="item-title">Guardião Manaia</h3>
+                <p class="item-style">Arte Maori</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="maori">
+            <img src="../images/icon.png" alt="Tatuagem Maori - Matau">
+            <div class="item-overlay">
+                <h3 class="item-title">Anzol Matau</h3>
+                <p class="item-style">Arte Maori</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="maori">
+            <img src="../images/icon.png" alt="Tatuagem Maori - Tribal">
+            <div class="item-overlay">
+                <h3 class="item-title">Padrão Tribal</h3>
+                <p class="item-style">Arte Maori</p>
+            </div>
+        </div>
+        
+        <!-- Sombreado -->
+        <div class="gallery-item" data-category="sombreado">
+            <img src="../images/icon.png" alt="Tatuagem Sombreada - Realismo">
+            <div class="item-overlay">
+                <h3 class="item-title">Retrato Realista</h3>
+                <p class="item-style">Sombreado</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="sombreado">
+            <img src="../images/icon.png" alt="Tatuagem Sombreada - Animal">
+            <div class="item-overlay">
+                <h3 class="item-title">Leão Majestoso</h3>
+                <p class="item-style">Sombreado</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="sombreado">
+            <img src="../images/icon.png" alt="Tatuagem Sombreada - Crânio">
+            <div class="item-overlay">
+                <h3 class="item-title">Crânio Detalhado</h3>
+                <p class="item-style">Sombreado</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="sombreado">
+            <img src="../images/icon.png" alt="Tatuagem Sombreada - Floresta">
+            <div class="item-overlay">
+                <h3 class="item-title">Floresta Sombria</h3>
+                <p class="item-style">Sombreado</p>
+            </div>
+        </div>
+        
+        <!-- Oriental -->
+        <div class="gallery-item" data-category="oriental">
+            <img src="../images/icon.png" alt="Tatuagem Oriental - Dragão">
+            <div class="item-overlay">
+                <h3 class="item-title">Dragão Dourado</h3>
+                <p class="item-style">Arte Oriental</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="oriental">
+            <img src="../images/icon.png" alt="Tatuagem Oriental - Carpa">
+            <div class="item-overlay">
+                <h3 class="item-title">Carpa Koi</h3>
+                <p class="item-style">Arte Oriental</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="oriental">
+            <img src="../images/icon.png" alt="Tatuagem Oriental - Flor">
+            <div class="item-overlay">
+                <h3 class="item-title">Flor de Cerejeira</h3>
+                <p class="item-style">Arte Oriental</p>
+            </div>
+        </div>
+        <div class="gallery-item" data-category="oriental">
+            <img src="../images/icon.png" alt="Tatuagem Oriental - Samurai">
+            <div class="item-overlay">
+                <h3 class="item-title">Guerreiro Samurai</h3>
+                <p class="item-style">Arte Oriental</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+            <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></button>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Estatísticas -->
+    <section class="gallery-stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number"><i class="fas fa-compass"></i> 150+</div>
+                <div class="stat-label">OBRAS MAORI</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><i class="fas fa-moon"></i> 200+</div>
+                <div class="stat-label">SOMBREADOS</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><i class="fas fa-dragon"></i> 100+</div>
+                <div class="stat-label">ARTE ORIENTAL</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number"><i class="fas fa-trophy"></i> 2000+</div>
+                <div class="stat-label">TOTAL DE ARTES</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Miguel Sant'anna - Tattoo</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua das Artes, 123 - Centro<br>
+                    <i class="fas fa-city"></i> Salvador - BA<br>
+                    <i class="fab fa-whatsapp"></i> WhatsApp: (71) 99999-9999</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Miguel Sant'anna | Tatuador - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts da Galeria -->
+    <script>
+        // Variáveis globais
+        let currentFilter = 'all';
+        let galleryImages = [];
+        let currentImageIndex = 0;
+
+        // Filtros
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remover classe active
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Aplicar filtro
+                const filter = btn.getAttribute('data-filter');
+                filterGallery(filter);
+            });
+        });
+
+        function filterGallery(filter) {
+            galleryItems.forEach((item, index) => {
+                const category = item.getAttribute('data-category');
+                
+                if (filter === 'all' || category === filter) {
+                    setTimeout(() => {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease forwards';
+                    }, index * 50);
+                } else {
+                    item.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                openLightbox(img.src, index);
+            });
+        });
+
+        function openLightbox(src, index) {
+            lightboxImage.src = src;
+            currentImageIndex = index;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Preparar array de imagens visíveis
+            galleryImages = Array.from(galleryItems)
+                .filter(item => item.style.display !== 'none')
+                .map(item => item.querySelector('img').src);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            lightboxImage.style.opacity = '0';
+            setTimeout(() => {
+                lightboxImage.src = galleryImages[currentImageIndex];
+                lightboxImage.style.opacity = '1';
+            }, 200);
+        }
+
+        // Fechar lightbox ao clicar fora
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Navegação por teclado
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+            }
+        });
+
+        // Animação de fade out
+        const fadeOutStyle = document.createElement('style');
+        fadeOutStyle.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: scale(1); }
+                to { opacity: 0; transform: scale(0.9); }
+            }
+        `;
+        document.head.appendChild(fadeOutStyle);
+
+        // Loading
+        window.addEventListener('load', () => {
+            const loading = document.createElement('div');
+            loading.className = 'loading';
+            loading.innerHTML = '<div class="loading-spinner"></div>';
+            document.body.appendChild(loading);
+            
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.remove(), 300);
+            }, 500);
+        });
+
+        // Animação ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        galleryItems.forEach(item => {
+            item.style.animationPlayState = 'paused';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
