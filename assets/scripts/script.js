@@ -441,8 +441,8 @@ class InstagramFeed {
             
             // Simular clique para abrir Instagram
             post.addEventListener('click', () => {
-                // Substitua pelo link real do Instagram
-                window.open('https://instagram.com/tribalinkstudio', '_blank');
+                // Substitua pelo link do Instagram
+                window.open('https://www.instagram.com/miguel_tattoo/', '_blank');
             });
         });
     }
