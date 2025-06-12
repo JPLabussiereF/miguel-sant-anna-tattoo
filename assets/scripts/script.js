@@ -273,15 +273,15 @@ class BookingForm {
         
         // Criar mensagem para WhatsApp
         const whatsappMessage = encodeURIComponent(
-            `🎨 *NOVO AGENDAMENTO - TRIBAL INK*\n\n` +
-            `👤 *Nome:* ${nome}\n` +
-            `🎨 *Estilo:* ${estilo}\n` +
-            `💬 *Mensagem:* ${mensagem}\n\n` +
+            `*NOVO AGENDAMENTO - MIGUEL SANT'ANNA*\n\n` +
+            `*Nome:* ${nome}\n` +
+            `*Estilo:* ${estilo}\n` +
+            `*Mensagem:* ${mensagem}\n\n` +
             `Olá! Gostaria de agendar uma sessão de tatuagem.`
         );
         
-        // Número do tatuador (adicione o número real aqui)
-        const tattooArtistNumber = '5571999999999'; // Substitua pelo número real
+        // Número do tatuador (adicione o número aqui)
+        const tattooArtistNumber = '5571996924570';
         
         // Criar link do WhatsApp
         const whatsappLink = `https://wa.me/${tattooArtistNumber}?text=${whatsappMessage}`;
