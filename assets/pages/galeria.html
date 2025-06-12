@@ -39,6 +39,13 @@
             overflow-x: hidden;
         }
 
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         /* Header Minimalista */
         .gallery-header {
             position: fixed;
@@ -434,6 +441,13 @@
             font-size: 1.5rem;
         }
 
+        .footer-info i {
+            color: var(--dourado-ancestral);
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+
         .footer-social {
             display: flex;
             gap: 1.5rem;
@@ -465,7 +479,6 @@
         .footer-social a:nth-child(1):hover { background: #E4405F; border-color: #E4405F; } /* Instagram */
         .footer-social a:nth-child(2):hover { background: #25D366; border-color: #25D366; } /* WhatsApp */
 
-
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
@@ -483,20 +496,17 @@
             .gallery-title { font-size: 2.5rem; }
             .lightbox-nav { display: none; }
             .filter-btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
-            .footer-content { flex-direction: column; text-align: center; gap: 2rem; }
+            .footer-content { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 2rem; 
+            }
         }
 
         @media (max-width: 480px) {
             .gallery-grid { column-count: 1; }
             .gallery-hero { padding: 2rem 1rem; }
             .lightbox-close { top: 10px; right: 10px; }
-        }
-
-        .footer-info i {
-            color: var(--dourado-ancestral);
-            margin-right: 0.5rem;
-            width: 20px;
-            text-align: center;
         }
 
         /* Animação de carregamento */
